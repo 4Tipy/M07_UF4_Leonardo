@@ -1,0 +1,23 @@
+<!-- neww -->
+{% extends 'index.html' %}
+
+{% block content %}
+<a href="{% url 'profes' %}">Profesores</a>
+<p>Bienvenidos a la paginas Students</p>
+<!-- {% include "head/header.html" %} -->
+<h1>Alumnos</h1>
+{% for al in als %}
+<div>
+    <div> 
+        <label>NomAlumne:</label> {{ al.nombre }}
+    </div>
+    <div> 
+        <label>Cognom:</label> {{ al.surname }}
+    </div>
+    <div> 
+        <label>Edat:</label> {{ al.age }}
+    </div>
+    <a href="{% url 'alumno' al.id %}">Ver</a> 
+</div></br>
+{% endfor %}
+{% endblock %}

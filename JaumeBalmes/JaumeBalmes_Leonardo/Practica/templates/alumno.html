@@ -1,0 +1,18 @@
+{% extends 'index.html' %}
+{% block content %}
+<p>Bienvenido {{ al.nombre}}</p>
+<h1>Alumnos</h1>
+<div>
+    <div>
+        <label>Nombre:</label> {{ al.nombre }}
+    </div>
+    <div>
+        <label>Apellido:</label> {{ al.surname }}
+    </div>
+    <div>
+        <label>Edad:</label> {{ al.age }}
+    </div>
+    <a href="{% url 'alumnes' %}">Ver</a>
+</div>
+
+{% endblock %}
