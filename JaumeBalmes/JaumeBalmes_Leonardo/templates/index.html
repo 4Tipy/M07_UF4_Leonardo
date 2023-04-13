@@ -4,25 +4,14 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{% static 'styles/header.css' %}">
     <title>Index Template</title>
 </head>
-{% include "head/header.html" %}
-<body class="container">  
-    <h1>Primer proyecto de prueba</h1>
-    <p>Bienvenidos al proyecto de prueba</p></br>
 
-    <p>Datos del profesor</p> </br>
-    <div>
-        <div>
-            <label for="">nombre: {{nombre}} </label>
-        </div>
-        <div>
-            <label for="">apellido: {{apellido}} </label>
-        </div>
-        <div>
-            <label for="">años: {{años}} </label>
-        </div>
-    </div>
+<body class="container">  
+    {% include "head/header.html" %}
+    <h1>Primer proyecto</h1>
+    {% block content %}
+   
+    {%endblock%}
 </body>
 </html>

@@ -1,0 +1,24 @@
+<!-- neww -->
+{% extends 'index.html' %}
+
+{% block content %}
+<a href="{% url 'alumnes' %}">Alumnos</a>
+<p>Bienvenidos a la paginas Teachers</p>
+
+<!-- {% include "head/header.html" %} -->
+<h1>Profesores</h1>
+{% for pf in pfs %}
+<div>
+    <div> 
+        <label>NomProfesor:</label> {{ pf.nombre }}
+    </div>
+    <div> 
+        <label>Curso:</label> {{ pf.curso }}
+    </div>
+    <div> 
+        <label>Ufs:</label> {{ pf.ufs }}
+    </div>
+    <a href="{% url 'profesor' pf.id %}">Ver</a>
+</div></br>
+{% endfor %}
+{% endblock %}
