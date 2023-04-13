@@ -9,13 +9,13 @@
 {% for al in als %}
 <div>
     <div> 
-        <label>NomAlumne:</label> {{ al.nombre }}
+        <label>Nombre:</label> {{ al.nombre }}
     </div>
     <div> 
-        <label>Cognom:</label> {{ al.surname }}
+        <label>Apellidos:</label> {{ al.apellido }}
     </div>
     <div> 
-        <label>Edat:</label> {{ al.age }}
+        <label>Edad:</label> {{ al.año }}
     </div>
     <a href="{% url 'alumno' al.id %}">Ver</a> 
 </div></br>

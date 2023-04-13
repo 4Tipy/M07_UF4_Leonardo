@@ -1,18 +1,19 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.template import Context, loader
+from .models import Person
+
 
 
 # Create your views here.
-
-alumnos = [
-        {"id": "1","nombre":"Leo", "surname":"Chávez", "age":"20"},
-        {"id": "2","nombre":"Luis", "surname":"Chávez", "age":"50"},
-        {"id": "3","nombre":"Pepo", "surname":"Happy", "age":"12"},
-        {"id": "4","nombre":"Roger", "surname":"Sobrino", "age":"12"},
-        {"id": "5","nombre":"Javier", "surname":"Roca", "age":"12"},
-        {"id": "6","nombre":"Jonathan", "surname":"Valle", "age":"12"},
-    ]
+# alumnos = [
+#         {"id": "1","nombre":"Leo", "surname":"Chávez", "age":"20"},
+#         {"id": "2","nombre":"Luis", "surname":"Castillo", "age":"50"},
+#         {"id": "3","nombre":"Pepo", "surname":"Happy", "age":"12"},
+#         {"id": "4","nombre":"Roger", "surname":"Sobrino", "age":"12"},
+#         {"id": "5","nombre":"Javier", "surname":"Roca", "age":"12"},
+#         {"id": "6","nombre":"Jonathan", "surname":"Valle", "age":"12"},
+#     ]
 
 profesores = [
         {"id": "1","nombre":"Roger", "curso":"a", "ufs":"1"},
@@ -20,8 +21,9 @@ profesores = [
         {"id": "3","nombre":"Oriol", "curso":"c", "ufs":"3"},
     ]
 
-def alumnes(request):
 
+def alumnes(request):
+    alumnos = Person.objects.all()
     context = {'als': alumnos}
     return render(request, 'alumnos.html',context)
 
