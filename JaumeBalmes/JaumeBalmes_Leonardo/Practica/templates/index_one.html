@@ -1,0 +1,24 @@
+{% block content %}
+    <h1>Formulario de Prueba</h1>
+
+    <form action="" method="POST">
+        {% csrf_token %}
+        <div class="form-group">
+            {{ form.nombre.label_tag }}
+            {{ form.nombre }}
+        </div>
+        <div class="form-group">
+            {{ form.apellido1.label_tag }}
+            {{ form.apellido1 }}
+        </div>
+        <div class="form-group">
+            {{ form.apellido2.label_tag }}
+            {{ form.apellido2 }}
+        </div>
+        <div class="form-group">
+            {{ form.edad.label_tag }}
+            {{ form.edad }}
+        </div>
+        <input type="submit" value="Guardar">
+    </form>
+{% endblock %}

@@ -1,0 +1,12 @@
+{% block content %}
+    {% for user in users %}
+        <p>{{ user.nombre }}</p>
+        <p>{{ user.apellido }}</p>
+        <p>{{ user.apellido2 }}</p>
+        <p>{{ user.año }}</p>
+        <p>{{ user.edad }}</p>
+        <p>{{ user.email }}</p>
+        <button><a href="{% url 'update_user' user.id %}">Editar</a>
+        <button><a href="{% url 'delete_user' user.id %}">Eliminar</a></button>
+    {% endfor %}
+{% endblock %}

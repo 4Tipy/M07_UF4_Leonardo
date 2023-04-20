@@ -1,8 +1,8 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.template import Context, loader
 from .models import Person
-
+from .forms import PersonForm
 
 
 # Create your views here.
@@ -45,6 +45,61 @@ def profesor(request, pk):
         if i['id'] == pk:
             profesor_Obj = i
     return render(request, 'profesor.html', {'pf':profesor_Obj})
+
+# def user_form(request):
+    # form = PersonForm(request.POST)
+
+    # if request.method == 'POST':
+    #     form = PersonForm(request.POST)
+    #     if form.is_valid():
+    #         form.save()
+    #         return redirect('index_one')
+
+
+    # context = {'form':form}
+    # return render(request, 'form.html', context)
+
+def userForm(request):
+    form = PersonForm(request.POST)
+    if form.is_valid():
+        form.save()
+        return redirect('index_one')
+    context = {'form':form}
+    return render(request, 'form.html', context)
+
+
+def users(request):
+    usuarios = Person.objects.all()
+    context = {'users':usuarios}
+    return  render(request, 'users.html', context)
+
+def update_user(request, pk):
+    person = Person.objects.get(id = pk)
+    form = PersonForm(instance=person)
+
+    if request.method == 'POST':
+        form = PersonForm(request.POST, instance = person)
+        if form.is_valid():
+            form.save()
+            return redirect('index_one')
+
+    context = {'form':form}
+    return render(request, 'form.html',context)
+
+def delete_user(request, pk):
+    person = Person.objects.get(id = pk)
+
+    if request.method == 'POST':
+        person.delete()
+        return redirect('index_one')
+    
+    context = {'object':person}
+    return render (request, 'delete_object.html', context)
+
+# def index_one(request):
+#     people = Person.objects.all()
+#     context = {'people': people}
+#     return render(request, 'index_one.html', context)
 
 # def index(request):
 #     profesor = {"name":"Leo", "surname":"Chávez", "age":"20"}
