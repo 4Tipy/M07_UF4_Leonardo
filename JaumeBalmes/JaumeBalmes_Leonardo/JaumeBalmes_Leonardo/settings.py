@@ -84,9 +84,14 @@ DATABASES = {
         'NAME': 'Practica 17',
         'USER': 'root',
         'PASSWORD': '',
-        'PORT': '3306'
-    }
+        'PORT': '3306',
+        'OPTIONS': {
+        'sql_mode': 'traditional',
 }
+    }
+    
+}
+
 
 
 # Password validation

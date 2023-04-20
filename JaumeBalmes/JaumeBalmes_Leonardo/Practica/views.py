@@ -2,6 +2,8 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from django.template import Context, loader
 from .models import Person
+from .forms import PersonForm
+
 
 
 
@@ -49,3 +51,8 @@ def profesor(request, pk):
 # def index(request):
 #     profesor = {"name":"Leo", "surname":"Chávez", "age":"20"}
 #     return render(request, 'index.html', {'nombre':profesor["name"], 'apellido':profesor["surname"], 'años':profesor["age"]} )
+
+def user_form(request):
+    form = PersonForm()
+    context = {'form':form}
+    return render(request, 'form.html', context)
